@@ -13,6 +13,8 @@ FILE_SEP = os.sep
 
 
 def checkPaths(categories, classification_path):
+    if not os.path.exists(classification_path):
+            os.mkdir(classification_path)
     for category in categories:
         target_path = classification_path+category+FILE_SEP
         if not os.path.exists(target_path+category+FILE_SEP):
