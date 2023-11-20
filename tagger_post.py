@@ -3,12 +3,12 @@ import json
 import shutil
 import os
 
-api_key = '{REEMPLAZAR AQUI SU API KEY}'
-api_secret = '{REEMPLAZAR AQUI SU API SECRET}'
+api_key = 'acc_4b32583a2ba9a5d'
+api_secret = '118f7df0cd2b4d7ff9f2ee6235bb8561'
 image_dir = 'imagenes/'
 
 CLASSIFICATION_PATH = 'imagenes/clasificacion/'
-CATEGORIES = ['dog', 'cat']
+CATEGORIES = ['tree', 'lake','dog']
 FILE_SEP = os.sep
 
 
@@ -16,8 +16,8 @@ def checkPaths(categories, classification_path):
     if not os.path.exists(classification_path):
             os.mkdir(classification_path)
     for category in categories:
-        target_path = classification_path+category+FILE_SEP
-        if not os.path.exists(target_path+category+FILE_SEP):
+        target_path = classification_path + category + FILE_SEP
+        if not os.path.exists(target_path + category + FILE_SEP):
             os.mkdir(target_path)
 
 
@@ -32,11 +32,12 @@ def classifyImage(image_path, categories, classification_path):
         filename = image_path.split(FILE_SEP)[1]
         for tag in data['result']['tags']:
             for category in categories:
-                target_path = classification_path+FILE_SEP+category+FILE_SEP
+                target_path = classification_path + FILE_SEP + category + FILE_SEP
                 if (tag['confidence'] == 100 and tag['tag']['en'] == category):
-                    shutil.copy(image_path, target_path+filename)
+                    shutil.copy(image_path, target_path + filename)
     else:
-        print("API error "+image_path)
+        print("API error " + image_path)
+        print(f"Response content: {response.content}")
 
 
 checkPaths(CATEGORIES, CLASSIFICATION_PATH)

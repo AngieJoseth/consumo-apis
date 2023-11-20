@@ -1,9 +1,9 @@
 import requests
 import json
 
-api_key = '{REEMPLAZAR AQUI SU API KEY}'
-api_secret = '{REEMPLAZAR AQUI SU API SECRET}'
-image_url = 'https://www.havolinedeportivo.com/wp-content/uploads/2022/03/Hinchas-Ecuador.jpeg'
+api_key = 'acc_4b32583a2ba9a5d'
+api_secret = '118f7df0cd2b4d7ff9f2ee6235bb8561'
+image_url = 'https://worldanimalfoundation.org/wp-content/uploads/2023/10/types-of-huskies-2.jpg'
 langs = 'en,es'
 
 response = requests.get(
